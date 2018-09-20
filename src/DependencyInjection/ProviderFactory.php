@@ -46,7 +46,7 @@ class ProviderFactory
     {
         $redirectUri = $this->generator
             ->generate($redirectUri, $redirectParams, UrlGeneratorInterface::ABSOLUTE_URL);
-
+        $redirectUri = str_replace("http://","https://",$redirectUri);
         $options['redirectUri'] = $redirectUri;
 
         return new $class($options, $collaborators);
